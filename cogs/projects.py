@@ -1,3 +1,20 @@
+'''
+Copyright (C) 2026 wirtnel
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+'''
+
 import discord
 from discord import app_commands
 from discord.ext import commands
@@ -69,8 +86,8 @@ class Projects(commands.Cog):
         embed.add_field(name="🧵 Hilos activos", value=threads_text, inline=False)
         embed.add_field(name="💻 Lenguajes", value=languages_text, inline=False)
 
-        if project.get("github"):
-            embed.add_field(name="📂 GitHub", value=project["github"], inline=False)
+        if project.get("repo"):
+            embed.add_field(name="📂 Repositorio", value=project["repo"], inline=False)
 
         pins = await channel.pins()
         if pins:
@@ -127,7 +144,7 @@ class Projects(commands.Cog):
             "threads": [],
             "languages": [],
             "history": [f"{interaction.user} creó el proyecto"],
-            "github": ""
+            "repo": ""
         }
 
         self.save_projects()
@@ -336,14 +353,14 @@ class Projects(commands.Cog):
             ephemeral=True
         )
 
-    @app_commands.command(name="github")
-    async def github(self, interaction: discord.Interaction, url: str):
+    @app_commands.command(name="repo")
+    async def repo(self, interaction: discord.Interaction, url: str):
         await interaction.response.defer(ephemeral=True)
 
         channel = interaction.channel
         if not self.is_lead(interaction.user, channel.id):
             return await interaction.followup.send(
-                "❌ Solo el lead puede modificar el GitHub del proyecto.",
+                "❌ Solo el lead puede modificar el Repositorio del proyecto.",
                 ephemeral=True
             )
 
@@ -354,9 +371,9 @@ class Projects(commands.Cog):
                 ephemeral=True
             )
 
-        project["github"] = url
+        project["repo"] = url
         project["history"].append(
-            f"{interaction.user} actualizó el repositorio GitHub"
+            f"{interaction.user} actualizó el repositorio Repositorio"
         )
 
         self.save_projects()
@@ -364,7 +381,7 @@ class Projects(commands.Cog):
         await self.update_info_channel(interaction.guild)
 
         await interaction.followup.send(
-            "Repositorio GitHub actualizado ✅",
+            "Repositorio Repositorio actualizado ✅",
             ephemeral=True
         )
 

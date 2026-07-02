@@ -1,4 +1,10 @@
-Wabot es un bot de Discord **open-source**, desarrollado desde cero, cuyo objetivo es facilitar la **gestión de proyectos directamente desde Discord** de forma simple, clara y accesible para todos los miembros del servidor.
+# wabot
+
+[![Codeberg](https://img.shields.io/badge/Maintained_on-Codeberg-708090?style=square&logo=git&logoColor=white)](https://codeberg.org/wirtnel/wabot)
+
+[![GitHub Mirror](https://img.shields.io/badge/Mirror_on-GitHub-24292e?style=flat-square&logo=github&logoColor=white)](https://github.com/wirtnel/wabot)
+
+Bot de Discord **open-source**, desarrollado desde cero, cuyo objetivo es facilitar la **gestión de proyectos directamente desde Discord** de forma simple, clara y accesible para todos los miembros del servidor.
 
 Está pensado especialmente para comunidades técnicas, clubes, equipos de desarrollo o study groups que trabajan con proyectos colaborativos.
 
@@ -19,7 +25,7 @@ Está pensado especialmente para comunidades técnicas, clubes, equipos de desar
 
 ---
 
-## 🛠️ Requisitos
+## Requisitos
 
 - Python **3.10+**
 - Un bot de Discord creado en el Developer Portal
@@ -27,12 +33,12 @@ Está pensado especialmente para comunidades técnicas, clubes, equipos de desar
 
 ---
 
-## 📦 Instalación
+## Instalación
 
-### 1️⃣ Clonar el repositorio
+### Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/wabot.git
+git clone https://codeberg.org/wirtnel/wabot
 cd wabot
 ```
 
@@ -43,7 +49,7 @@ source venv/bin/activate  # Linux / macOS
 venv\Scripts\activate     # Windows
 ```
 
-### Instalar dependencias y configurar 
+### Instalar dependencias y configurar
 ```bash
 pip install -r requirements.txt
 ```

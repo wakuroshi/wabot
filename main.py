@@ -1,3 +1,20 @@
+'''
+Copyright (C) 2026 wirtnel
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+'''
+
 import discord
 from discord import app_commands
 from discord.ext import commands
@@ -15,7 +32,7 @@ STAFF_ROLE_NAME = "Staff"
 BOT_LOG_CHANNEL = "💾・logs"
 PROJECT_CATEGORY = "📌 | Proyectos"
 ARCHIVE_CATEGORY = "📦 | Archivados"
-OWNER_ROLE = "Owner" 
+OWNER_ROLE = "Owner"
 
 intents = discord.Intents.default()
 
@@ -23,7 +40,7 @@ intents = discord.Intents.default()
 class WaBot(commands.Bot):
     def __init__(self):
         super().__init__(
-            command_prefix="!",  
+            command_prefix="!",
             intents=intents
         )
 
@@ -37,7 +54,7 @@ class WaBot(commands.Bot):
         await self.load_extension("cogs.rolch")
         await self.load_extension("cogs.rules")
         await self.load_extension("cogs.wabot")
-        
+
         # Sincronizar slash commands
         await self.tree.sync()
 
@@ -47,7 +64,7 @@ bot.project_category_name = PROJECT_CATEGORY
 bot.archive_category_name = ARCHIVE_CATEGORY
 bot.bot_log_channel_name = BOT_LOG_CHANNEL
 bot.guild_id = GUILD_ID
-bot.owner_role_name = OWNER_ROLE 
+bot.owner_role_name = OWNER_ROLE
 
 @bot.event
 async def on_ready():
